@@ -133,7 +133,7 @@ export type FeatureFlags = TinyEmitter & {
 export type Annotator = {
   anchors: Anchor[];
   anchor(ann: AnnotationData): Promise<Anchor[]>;
-  features: FeatureFlags;
+  // features: FeatureFlags;
   sideBySide?: SideBySideOptions;
 };
 
