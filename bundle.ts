@@ -1,5 +1,5 @@
 await Bun.build({
-  entrypoints: ["src/annotator/highlighter.ts"],
+  entrypoints: ["src/annotator/guest.ts"],
   outdir: "./build",
   minify: false,
   plugins: [ /* ... */ ]
