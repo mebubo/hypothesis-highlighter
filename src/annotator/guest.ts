@@ -566,6 +566,14 @@ export class Guest /* extends TinyEmitter */ implements /* Annotator, */ Destroy
 
   //   this._sidebarRPC.on('deleteAnnotation', (tag: string) => this.detach(tag));
 
+  async loadAnnotations(annotations: AnnotationData[]) {
+    try {
+      await Promise.all(annotations.map(ann => this.anchor(ann)));
+    } catch (e) {
+      console.warn('Failed to anchor annotations:', e);
+    }
+  }
+
   //   this._sidebarRPC.on(
   //     'loadAnnotations',
   //     async (annotations: AnnotationData[]) => {
