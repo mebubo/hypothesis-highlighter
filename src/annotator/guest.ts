@@ -750,6 +750,11 @@ export class Guest /* extends TinyEmitter */ implements /* Annotator, */ Destroy
     // }
   }
 
+  getSelectedRanges(): Range[] {
+    const range = window.getSelection()?.getRangeAt(0);
+    return [this._integration.getAnnotatableRange(range)];
+  }
+
   /**
    * Create a new annotation that is associated with the selected region of
    * the current document.
@@ -761,8 +766,9 @@ export class Guest /* extends TinyEmitter */ implements /* Annotator, */ Destroy
    * @return The new annotation
    */
   async createAnnotation({ highlight = false } = {}): Promise<AnnotationData> {
-    const ranges = this.selectedRanges;
-    this.selectedRanges = [];
+    // const ranges = this.selectedRanges;
+    // this.selectedRanges = [];
+    const ranges = this.getSelectedRanges();
 
     const info = await this.getDocumentInfo();
     const root = this.element;
