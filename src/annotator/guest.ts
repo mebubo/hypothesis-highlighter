@@ -900,17 +900,17 @@ export class Guest /* extends TinyEmitter */ implements /* Annotator, */ Destroy
    *   change. This should be true unless the request to change highlight
    *   visibility is coming from the host frame.
    */
-  // setHighlightsVisible(visible: boolean, notifyHost = true) {
-  //   setHighlightsVisible(this.element, visible);
-  //   this._highlightsVisible = visible;
-  //   if (notifyHost) {
-  //     this._hostRPC.call('highlightsVisibleChanged', visible);
-  //   }
-  // }
+  setHighlightsVisible(visible: boolean, notifyHost = true) {
+    setHighlightsVisible(this.element, visible);
+    this._highlightsVisible = visible;
+    // if (notifyHost) {
+    //   this._hostRPC.call('highlightsVisibleChanged', visible);
+    // }
+  }
 
-  // get highlightsVisible() {
-  //   return this._highlightsVisible;
-  // }
+  get highlightsVisible() {
+    return this._highlightsVisible;
+  }
 
   /**
    * Attempt to fit the document content alongside the sidebar.
